@@ -3,18 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="style.css">
-        <title>Resume - Education</title>
+        <title>Resume - Contact</title>
         <script src="https://unpkg.com/scrollreveal"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                const sr = ScrollReveal({ origin: 'bottom', distance: '30px', duration: 1000 });
+                const sr = ScrollReveal({
+                    origin: 'bottom',
+                    distance: '30px',
+                    duration: 1000,
+                    reset: false
+                });
                 sr.reveal('main h2', { delay: 200 });
                 sr.reveal('main p', { delay: 400 });
+                sr.reveal('main a', { delay: 600 });
             });
         </script>
     </head>
+
     <body>
-        <header><h1>Education</h1></header>
+        <header>
+            <h1>Contact Me</h1>
+        </header>
+
         <div class="Menue">
             <nav>
                 <ul>
@@ -26,19 +36,19 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            
             <main>
-                <h2>University of Chicago, Chicago, IL</h2>
-                <p><strong>MS, Computer Science (MPCS)</strong><br>Expected December 2026</p>
-                <p>Focusing on advanced software engineering and scalable systems.</p>
-                <br>
-                <h2>Boston University, Boston, MA</h2>
-                <p><strong>BA, Computer Science</strong><br>September 2022 - May 2025</p>
-                <p>Graduated with a focus on foundational computer science and web technologies.</p>
-                <br>
-                <h2>Crean Lutheran High School, Irvine, CA</h2>
-                <p><strong>High School Diploma</strong><br>August 2018 - June 2022</p>
+                <h2>Get In Touch</h2>
+                <p>I am currently based in Chicago, IL and would love to connect regarding software engineering opportunities or technical collaborations.</p>
+                
+                <p><strong>Email:</strong> <a href="mailto:slnxiao@uchicago.edu">slnxiao@uchicago.edu</a></p>
+                
+                <p>Feel free to reach out via email for a copy of my full resume or to discuss my work.</p>
             </main>
         </div>
-        <footer><p>All rights reserved by Ruyue Xiao <a href="credit.html">Credit &copy;</a></p></footer>
+
+        <footer>
+            <p>All rights reserved by Ruyue Xiao <a href="credit.html">Credit &copy;</a></p>
+        </footer>
     </body>
 </html>

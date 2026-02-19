@@ -4,6 +4,20 @@
         <meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="style.css">
         <title>Resume - Projects</title>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const sr = ScrollReveal({
+                    origin: 'bottom',
+                    distance: '30px',
+                    duration: 1000,
+                    reset: false
+                });
+                sr.reveal('main h2', { delay: 200 });
+                sr.reveal('main p', { delay: 400 });
+                sr.reveal('main a', { interval: 100, delay: 500 });
+            });
+        </script>
     </head>
 
     <body>
@@ -19,14 +33,13 @@
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="skills.html">Skills</a></li>
-                    <li><a href="hobby.html">Hobby</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             
             <main>
-                
                 <h2>Mini Facebook</h2>
-                <p>Developed a simulated social networking application with features like user profiles, status updates, image uploads, friend connections, and a news feed. (Using Nintendo characters)</p>
+                <p>Developed a simulated social networking application with features like user profiles, status updates, image uploads, friend connections, and a news feed.</p>
                 <p><a href="https://cs-webapps.bu.edu/slnxiao/mini_fb/">Live Demo</a></p>
 
                 <h2>Advanced Image Search with CLIP and PCA</h2>
@@ -52,19 +65,15 @@
                 <p><a href="https://github.com/Julyfan77/StockPredict.git">GitHub Link</a></p>
                 <p><a href="https://finalstockpredictweb.vercel.app/">Visual Website</a></p>
 
-
-
                 <h2>Interactive Linear Regression Simulator</h2>
                 <p>Developed a web app demonstrating how changing parameters affects linear regression results.</p>
                 <p><a href="https://github.com/slnxiao23/slnxiao-assignment-6">GitHub Link</a></p>
                 <p><a href="https://drive.google.com/file/d/1iXxI0RYP8aOM-x0lGoXTTTdtgA9Wtu78/view?usp=sharing">Demo Video</a></p>
 
-
                 <h2>LSA-Based Search Engine</h2>
                 <p>Developed an interactive search engine using Latent Semantic Analysis (LSA) to retrieve documents based on cosine similarity.</p>
                 <p><a href="https://github.com/slnxiao23/slnxiao-assignment-4">GitHub Link</a></p>
                 <p><a href="https://drive.google.com/file/d/1kkFbrThSW8RZYSqWaZp8e3zAbH_NWk4r/view?usp=sharing">Demo Video</a></p>
-
 
                 <h2>KMeans Clustering Web App</h2>
                 <p>Developed an interactive web application that demonstrates the KMeans clustering algorithm.</p>
@@ -75,7 +84,6 @@
                 <p>Applied Singular Value Decomposition (SVD) to reduce the dimensionality of the MNIST dataset and trained a logistic regression classifier on the reduced data.</p>
                 <p><a href="https://github.com/slnxiao23/slnxiao-assignment-3">GitHub Link</a></p>
 
-
                 <h2>Zelda Breath of the Wild Creatures</h2>
                 <p>A web app displaying all creatures from The Legend of Zelda: Breath of the Wild.</p>
                 <p><a href="https://mp-2-kohl.vercel.app/">Live Demo</a></p>
@@ -83,15 +91,11 @@
                 <h2>Weather Tracker</h2>
                 <p>An interactive web application for tracking weather conditions.</p>
                 <p><a href="https://mp-4-inky.vercel.app/">Live Demo</a></p>
-                
-
             </main>
         </div>
 
         <footer>
             <p>All rights reserved by Ruyue Xiao <a href="credit.html">Credit &copy;</a></p>
         </footer>
-
-        <script src="script.js"></script>
     </body>
 </html>

@@ -4,6 +4,19 @@
         <meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="style.css">
         <title>Resume - Skills</title>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const sr = ScrollReveal({
+                    origin: 'bottom',
+                    distance: '30px',
+                    duration: 1000,
+                    reset: false
+                });
+                sr.reveal('main h2', { delay: 200 });
+                sr.reveal('main ul li', { interval: 100, delay: 400 });
+            });
+        </script>
     </head>
 
     <body>
@@ -19,7 +32,7 @@
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="skills.html">Skills</a></li>
-                    <li><a href="hobby.html">Hobby</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
             

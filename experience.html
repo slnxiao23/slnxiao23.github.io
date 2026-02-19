@@ -4,13 +4,18 @@
         <meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="style.css">
         <title>Resume - Experience</title>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const sr = ScrollReveal({ origin: 'bottom', distance: '30px', duration: 1000 });
+                sr.reveal('main h2', { delay: 200 });
+                sr.reveal('main p', { delay: 400 });
+                sr.reveal('main ul li', { interval: 100 });
+            });
+        </script>
     </head>
-
     <body>
-        <header>
-            <h1>Experience</h1>
-        </header>
-
+        <header><h1>Experience</h1></header>
         <div class="Menue">
             <nav>
                 <ul>
@@ -19,35 +24,30 @@
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="skills.html">Skills</a></li>
-                    <li><a href="hobby.html">Hobby</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-            
             <main>
                 <h2>Internship: Software Engineering</h2>
-                <p><strong>Backend Developer, Frontend Developer</strong><br>July 2024 – Aug. 2024, San Francisco, CA (Remote)</p>
+                <p><strong>Backend & Frontend Developer</strong> | Jul. 2024 – Aug. 2024, San Francisco, CA</p>
                 <ul>
-                    <li>Engineered a comprehensive insurance platform using Spring Boot (backend) and Angular (frontend), implementing RESTful APIs for claims processing, policy management, and compliance checks.</li>
-                    <li>Designed and developed a responsive UI for seamless policy and claims management.</li>
+                    <li>Engineered a comprehensive insurance platform using Spring Boot for the backend and Angular for the frontend.</li>
+                    <li>Implemented RESTful APIs for claims processing, policy management, and compliance checks.</li>
+                    <li>Designed a responsive UI to ensure seamless interaction and robust integration tested through Postman.</li>
                 </ul>
 
                 <h2>Kaggle Competition: Movie Review Prediction</h2>
-                <p><strong>Top 3 out of 189 Students</strong><br>Oct. 2024, Boston, MA</p>
+                <p><strong>Top 3 out of 189 Students</strong> | Oct. 2024, Boston, MA</p>
                 <ul>
                     <li>Built a predictive model for movie review ratings using feature engineering and advanced classification techniques.</li>
                     <li>Optimized model performance through hyperparameter tuning and cross-validation, achieving a top 3 ranking with high accuracy.</li>
                 </ul>
 
                 <h2>Student Tutor</h2>
-                <p><strong>Work Study Job</strong><br>Oct. 2023 – Present, Boston, MA</p>
+                <p><strong>Boston University</strong> | Oct. 2023 – May 2025, Boston, MA</p>
                 <ul>
-                    <li>Tutored computer science, math, and economics at the student-athletes tutoring center.</li>
-                </ul>
-
-                <h2>Hackathon Experience</h2>
-                <p><strong>Boston Hacks 2023</strong><br>Nov. 2023, Boston, MA</p>
-                <ul>
-                    <li>Demonstrated skills in web development, teamwork, communication, and creativity by developing a prototype solution in a 24-hour coding challenge.</li>
+                    <li>Provided tutoring in computer science, math, and economics to student-athletes.</li>
+                    <li>Focused on personalized sessions to improve student comprehension and grades.</li>
                 </ul>
             </main>
         </div>
