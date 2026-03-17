@@ -1,54 +1,98 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link type="text/css" rel="stylesheet" href="style.css">
-        <title>Resume - Contact</title>
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const sr = ScrollReveal({
-                    origin: 'bottom',
-                    distance: '30px',
-                    duration: 1000,
-                    reset: false
-                });
-                sr.reveal('main h2', { delay: 200 });
-                sr.reveal('main p', { delay: 400 });
-                sr.reveal('main a', { delay: 600 });
-            });
-        </script>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Ruyue Xiao — Contact</title>
+    <style>
+      .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("visible"), i * 50);
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll(".card, .terminal, .project-card, .edu-entry, .exp-entry").forEach(el => {
+          el.classList.add("reveal");
+          io.observe(el);
+        });
+        document.querySelectorAll("nav a").forEach(a => {
+          const page = location.pathname.split("/").pop() || "index.html";
+          if (a.getAttribute("href") === page) a.classList.add("active");
+        });
+      });
+    </script>
+</head>
+<body>
 
-    <body>
-        <header>
-            <h1>Contact Me</h1>
-        </header>
+<header>
+  <h1>Contact</h1>
+  <div class="header-mono"><span class="kw">open</span> mailto:<span class="str">slnxiao@uchicago.edu</span></div>
+</header>
 
-        <div class="Menue">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <main>
-                <h2>Get In Touch</h2>
-                <p>I am currently based in Chicago, IL and would love to connect regarding software engineering opportunities or technical collaborations.</p>
-                
-                <p><strong>Email:</strong> <a href="mailto:slnxiao@uchicago.edu">slnxiao@uchicago.edu</a></p>
-                
-                <p>Feel free to reach out via email for a copy of my full resume or to discuss my work.</p>
-            </main>
+<div class="Menue">
+  <nav>
+    <div class="nav-label">// navigate</div>
+    <ul>
+      <li><a href="index.html"><span class="nav-icon">~</span>Home</a></li>
+      <li><a href="education.html"><span class="nav-icon">#</span>Education</a></li>
+      <li><a href="experience.html"><span class="nav-icon">$</span>Experience</a></li>
+      <li><a href="projects.html"><span class="nav-icon">/</span>Projects</a></li>
+      <li><a href="skills.html"><span class="nav-icon">[]</span>Skills</a></li>
+      <li><a href="contact.html"><span class="nav-icon">@</span>Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-tag">contact</span>
+        <h2>Get In Touch</h2>
+      </div>
+
+      <div class="contact-block">
+
+        <div class="contact-note">
+          I'm currently based in Chicago, IL and actively looking for software engineering opportunities. Feel free to reach out about roles, collaborations, or just to connect.
         </div>
 
-        <footer>
-            <p>All rights reserved by Ruyue Xiao <a href="credit.html">Credit &copy;</a></p>
-        </footer>
-    </body>
+        <div class="contact-row-item">
+          <span class="contact-label">email</span>
+          <span class="contact-value"><a href="mailto:slnxiao@uchicago.edu">slnxiao@uchicago.edu</a></span>
+        </div>
+
+        <div class="contact-row-item">
+          <span class="contact-label">location</span>
+          <span class="contact-value">Chicago, IL</span>
+        </div>
+
+        <div class="contact-row-item">
+          <span class="contact-label">status</span>
+          <span class="contact-value" style="color:var(--accent)">Open to SWE internships &amp; new grad roles</span>
+        </div>
+
+      </div>
+
+      <div style="margin-top:22px">
+        <a class="btn btn-primary" href="mailto:slnxiao@uchicago.edu">Send Email →</a>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <p>// Ruyue Xiao · <a href="credit.html">credits &amp; acknowledgments</a></p>
+</footer>
+
+</body>
 </html>

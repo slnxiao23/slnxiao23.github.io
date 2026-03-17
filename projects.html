@@ -1,101 +1,240 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link type="text/css" rel="stylesheet" href="style.css">
-        <title>Resume - Projects</title>
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const sr = ScrollReveal({
-                    origin: 'bottom',
-                    distance: '30px',
-                    duration: 1000,
-                    reset: false
-                });
-                sr.reveal('main h2', { delay: 200 });
-                sr.reveal('main p', { delay: 400 });
-                sr.reveal('main a', { interval: 100, delay: 500 });
-            });
-        </script>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Ruyue Xiao — Projects</title>
+    <style>
+      .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("visible"), i * 50);
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll(".card, .terminal, .project-card, .edu-entry, .exp-entry").forEach(el => {
+          el.classList.add("reveal");
+          io.observe(el);
+        });
+        document.querySelectorAll("nav a").forEach(a => {
+          const page = location.pathname.split("/").pop() || "index.html";
+          if (a.getAttribute("href") === page) a.classList.add("active");
+        });
+      });
+    </script>
+</head>
+<body>
 
-    <body>
-        <header>
-            <h1>Projects</h1>
-        </header>
+<header>
+  <h1>Projects</h1>
+  <div class="header-mono"><span class="kw">ls</span> ~/projects | <span class="str">12 entries</span></div>
+</header>
 
-        <div class="Menue">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <main>
-                <h2>Mini Facebook</h2>
-                <p>Developed a simulated social networking application with features like user profiles, status updates, image uploads, friend connections, and a news feed.</p>
-                <p><a href="https://cs-webapps.bu.edu/slnxiao/mini_fb/">Live Demo</a></p>
+<div class="Menue">
+  <nav>
+    <div class="nav-label">// navigate</div>
+    <ul>
+      <li><a href="index.html"><span class="nav-icon">~</span>Home</a></li>
+      <li><a href="education.html"><span class="nav-icon">#</span>Education</a></li>
+      <li><a href="experience.html"><span class="nav-icon">$</span>Experience</a></li>
+      <li><a href="projects.html"><span class="nav-icon">/</span>Projects</a></li>
+      <li><a href="skills.html"><span class="nav-icon">[]</span>Skills</a></li>
+      <li><a href="contact.html"><span class="nav-icon">@</span>Contact</a></li>
+    </ul>
+  </nav>
 
-                <h2>Advanced Image Search with CLIP and PCA</h2>
-                <p>Implemented an image search engine using CLIP and PCA embeddings.</p>
-                <p><a href="https://github.com/slnxiao23/slnxiao-assignment-10">GitHub Link</a></p>
-                <p><a href="https://drive.google.com/file/d/1QT-4VW3DG9OcOPa9kzJl1pIOBgZdbTJn/view?usp=sharing">Demo Video</a></p>
+  <main>
 
-                <h2>Neural Network Visualization</h2>
-                <p>Visualized the training process of a neural network, showing transformation in hidden space, evolution of decision boundaries, and gradient updates.</p>
-                <p><a href="https://github.com/slnxiao23/slnxiao-assignment-9">GitHub Link</a></p>
-                <p><a href="https://drive.google.com/file/d/1TM4NroEfSdjB1Ha_CIr8HS9tXabGveRa/view?usp=sharing">Demo Video</a></p>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+        <span class="terminal-title">selina@portfolio ~/projects — zsh</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-dim">// ML · full-stack · systems · NLP</div>
+        <div class="t-prompt t-cmd">ls -1 | head -4</div>
+        <div class="t-out"><span class="t-str">clip-image-search/</span></div>
+        <div class="t-out"><span class="t-str">neural-net-viz/</span></div>
+        <div class="t-out"><span class="t-str">stock-predict/</span></div>
+        <div class="t-out"><span class="t-str">lsa-search-engine/</span> ...</div>
+        <div class="t-prompt t-cmd" style="margin-top:4px">open .<span class="cursor"></span></div>
+      </div>
+    </div>
 
-                <h2>Quote of the Day</h2>
-                <p>A web application that displays a randomly selected quote from a famous person (Albert Einstein).</p>
-                <p><a href="https://cs-webapps.bu.edu/slnxiao/quotes/">Live Demo</a></p>
+    <div class="card">
+      <div class="card-header">
+        <span class="card-tag">01</span>
+        <h2>All Projects</h2>
+      </div>
 
-                <h2>Stock Price Tracker with Caching</h2>
-                <p>Built a stock price tracker utilizing Next.js 15 caching features, along with Emotion and Material-UI for a dynamic interface.</p>
-                <p><a href="https://nextjs-caching-stock-tracker-3ur5hkt3u.vercel.app/">Live Demo</a></p>
+      <div class="projects-grid">
 
-                <h2>StockPredict</h2>
-                <p>Developed a stock prediction model using LSTMs.</p>
-                <p><a href="https://github.com/Julyfan77/StockPredict.git">GitHub Link</a></p>
-                <p><a href="https://finalstockpredictweb.vercel.app/">Visual Website</a></p>
-
-                <h2>Interactive Linear Regression Simulator</h2>
-                <p>Developed a web app demonstrating how changing parameters affects linear regression results.</p>
-                <p><a href="https://github.com/slnxiao23/slnxiao-assignment-6">GitHub Link</a></p>
-                <p><a href="https://drive.google.com/file/d/1iXxI0RYP8aOM-x0lGoXTTTdtgA9Wtu78/view?usp=sharing">Demo Video</a></p>
-
-                <h2>LSA-Based Search Engine</h2>
-                <p>Developed an interactive search engine using Latent Semantic Analysis (LSA) to retrieve documents based on cosine similarity.</p>
-                <p><a href="https://github.com/slnxiao23/slnxiao-assignment-4">GitHub Link</a></p>
-                <p><a href="https://drive.google.com/file/d/1kkFbrThSW8RZYSqWaZp8e3zAbH_NWk4r/view?usp=sharing">Demo Video</a></p>
-
-                <h2>KMeans Clustering Web App</h2>
-                <p>Developed an interactive web application that demonstrates the KMeans clustering algorithm.</p>
-                <p><a href="https://github.com/slnxiao23/slnxiao-assignment-2">GitHub Link</a></p>
-                <p><a href="https://drive.google.com/file/d/1kkFbrThSW8RZYSqWaZp8e3zAbH_NWk4r/view?usp=sharing">Demo Video</a></p>
-
-                <h2>Dimensionality Reduction on MNIST</h2>
-                <p>Applied Singular Value Decomposition (SVD) to reduce the dimensionality of the MNIST dataset and trained a logistic regression classifier on the reduced data.</p>
-                <p><a href="https://github.com/slnxiao23/slnxiao-assignment-3">GitHub Link</a></p>
-
-                <h2>Zelda Breath of the Wild Creatures</h2>
-                <p>A web app displaying all creatures from The Legend of Zelda: Breath of the Wild.</p>
-                <p><a href="https://mp-2-kohl.vercel.app/">Live Demo</a></p>
-                
-                <h2>Weather Tracker</h2>
-                <p>An interactive web application for tracking weather conditions.</p>
-                <p><a href="https://mp-4-inky.vercel.app/">Live Demo</a></p>
-            </main>
+        <div class="project-card">
+          <div class="project-category">Python · ML · Computer Vision</div>
+          <h3>Advanced Image Search with CLIP and PCA</h3>
+          <p>Implemented a semantically-aware image search engine using CLIP embeddings with PCA dimensionality reduction for fast, accurate retrieval.</p>
+          <div class="project-tags">
+            <span class="tag">CLIP</span><span class="tag">PCA</span><span class="tag">PyTorch</span><span class="tag">Python</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/slnxiao23/slnxiao-assignment-10" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://drive.google.com/file/d/1QT-4VW3DG9OcOPa9kzJl1pIOBgZdbTJn/view?usp=sharing" target="_blank">Demo ▶</a>
+          </div>
         </div>
 
-        <footer>
-            <p>All rights reserved by Ruyue Xiao <a href="credit.html">Credit &copy;</a></p>
-        </footer>
-    </body>
+        <div class="project-card">
+          <div class="project-category">Python · ML · Visualization</div>
+          <h3>Neural Network Visualization</h3>
+          <p>Visualized the full training process of a neural network — hidden space transformations, evolving decision boundaries, and gradient updates.</p>
+          <div class="project-tags">
+            <span class="tag">PyTorch</span><span class="tag">Matplotlib</span><span class="tag">sklearn</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/slnxiao23/slnxiao-assignment-9" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://drive.google.com/file/d/1TM4NroEfSdjB1Ha_CIr8HS9tXabGveRa/view?usp=sharing" target="_blank">Demo ▶</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Python · ML · Finance</div>
+          <h3>StockPredict</h3>
+          <p>Stock price prediction model using LSTMs trained on historical market data, with a live visual website for interactive exploration.</p>
+          <div class="project-tags">
+            <span class="tag">LSTM</span><span class="tag">PyTorch</span><span class="tag">Next.js</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/Julyfan77/StockPredict.git" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://finalstockpredictweb.vercel.app/" target="_blank">Live ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">TypeScript · Full Stack</div>
+          <h3>Stock Price Tracker with Caching</h3>
+          <p>Real-time stock tracker using Next.js 15 caching strategies, Emotion CSS-in-JS, and Material-UI for a responsive, dynamic interface.</p>
+          <div class="project-tags">
+            <span class="tag">Next.js 15</span><span class="tag">Material-UI</span><span class="tag">Emotion</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://nextjs-caching-stock-tracker-3ur5hkt3u.vercel.app/" target="_blank">Live ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Django · Full Stack</div>
+          <h3>Mini Facebook</h3>
+          <p>Simulated social networking app with user profiles, status updates, image uploads, friend connections, and a personalized news feed.</p>
+          <div class="project-tags">
+            <span class="tag">Django</span><span class="tag">Python</span><span class="tag">SQLite</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://cs-webapps.bu.edu/slnxiao/mini_fb/" target="_blank">Live ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Python · ML · Interactive</div>
+          <h3>Interactive Linear Regression Simulator</h3>
+          <p>Web app showing how tuning learning rate, noise, and sample size affects linear regression model fit in real time.</p>
+          <div class="project-tags">
+            <span class="tag">Flask</span><span class="tag">NumPy</span><span class="tag">D3.js</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/slnxiao23/slnxiao-assignment-6" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://drive.google.com/file/d/1iXxI0RYP8aOM-x0lGoXTTTdtgA9Wtu78/view?usp=sharing" target="_blank">Demo ▶</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Python · NLP · IR</div>
+          <h3>LSA-Based Search Engine</h3>
+          <p>Interactive search engine using Latent Semantic Analysis and cosine similarity to retrieve semantically relevant documents.</p>
+          <div class="project-tags">
+            <span class="tag">LSA</span><span class="tag">SVD</span><span class="tag">sklearn</span><span class="tag">Flask</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/slnxiao23/slnxiao-assignment-4" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://drive.google.com/file/d/1kkFbrThSW8RZYSqWaZp8e3zAbH_NWk4r/view?usp=sharing" target="_blank">Demo ▶</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Python · ML · Algorithm</div>
+          <h3>KMeans Clustering Web App</h3>
+          <p>Interactive visualization of KMeans showing centroid updates, cluster assignments, and convergence step-by-step.</p>
+          <div class="project-tags">
+            <span class="tag">KMeans</span><span class="tag">NumPy</span><span class="tag">Flask</span><span class="tag">D3.js</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/slnxiao23/slnxiao-assignment-2" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://drive.google.com/file/d/1kkFbrThSW8RZYSqWaZp8e3zAbH_NWk4r/view?usp=sharing" target="_blank">Demo ▶</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Python · ML · Linear Algebra</div>
+          <h3>Dimensionality Reduction on MNIST</h3>
+          <p>Applied SVD to compress MNIST digits and trained a logistic regression classifier on the reduced representation, exploring compression vs. accuracy tradeoffs.</p>
+          <div class="project-tags">
+            <span class="tag">SVD</span><span class="tag">LogReg</span><span class="tag">NumPy</span><span class="tag">sklearn</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://github.com/slnxiao23/slnxiao-assignment-3" target="_blank">GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">TypeScript · Full Stack</div>
+          <h3>Weather Tracker</h3>
+          <p>Interactive weather app with location search, live API data, and a clean responsive UI built with Next.js.</p>
+          <div class="project-tags">
+            <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">REST API</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://mp-4-inky.vercel.app/" target="_blank">Live ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">TypeScript · React · API</div>
+          <h3>Zelda: BotW Creatures</h3>
+          <p>Web app displaying all creatures from Breath of the Wild, fetched from the Hyrule Compendium API with search and filter functionality.</p>
+          <div class="project-tags">
+            <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">REST API</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://mp-2-kohl.vercel.app/" target="_blank">Live ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-category">Django · Web</div>
+          <h3>Quote of the Day</h3>
+          <p>A Django web app that surfaces a randomly selected Einstein quote each visit, demonstrating views, ORM queries, and template rendering.</p>
+          <div class="project-tags">
+            <span class="tag">Django</span><span class="tag">Python</span><span class="tag">ORM</span>
+          </div>
+          <div class="project-links">
+            <a class="proj-link" href="https://cs-webapps.bu.edu/slnxiao/quotes/" target="_blank">Live ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <p>// Ruyue Xiao · <a href="credit.html">credits &amp; acknowledgments</a></p>
+</footer>
+
+</body>
 </html>
